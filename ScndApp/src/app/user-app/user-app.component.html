@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">
+    Angular Application
+    </a>
+  </nav>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8 mt-4">
+          <ul class="list-group ">
+            <li
+            *ngFor="let user of userArray"
+            class="list-group-item "
+            (click)="OpenUser(user)"
+            [class.active]="user == selectedUser"
+   
+            >
+            
+            <span class="badge">{{user.id}}</span>
+            {{user.name}} - {{user.country}}
+  
+            </li>
+          </ul>
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">
+                  Agreagar Usuario
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="selectedUser.name"  placeholder="Inserte Nombre" class="form-control"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="selectedUser.country"  placeholder="Inserte Pais" class="form-control"/>
+                </div>
+                <button (click)="AddOrEdit()" class="btn btn-info">
+                  Enviar
+                </button>
+                <button 
+                  *ngIf="selectedUser.id !== 0"
+                  (click)="DeleteUser()" 
+                  class="btn btn-danger">
+                  Eliminar
+                </button>
+  
+                
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>

@@ -1,0 +1,11 @@
+<button [ngClass]="{'azul':isLogged, 'red':!isLogged}" (click)="login()">Inicia Sesion</button>
+  <div *ngIf ="isLogged">
+    <button>Registro</button>
+    <button>Inicia Sesion</button>
+    <span>Ingresa Nombre {{nombre}}</span>
+    <input type="text" [(ngModel)]="nombre"/>
+ </div>
+ <div *ngIf="!isLogged">
+    <button>Perfil</button>
+    <button>Cerrar Sesion</button>
+ </div>
